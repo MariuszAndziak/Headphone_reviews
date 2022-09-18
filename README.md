@@ -9,9 +9,9 @@ The in-depth analysis of this dataset will focus mainly on different NLP techniq
 [Kaggle dataset](https://www.kaggle.com/datasets/mdwaquarazam/headphone-dataset-review-analysis)
 [Amazon product data](https://www.amazon.in/boat-headphones/s?k=boat+headphones) 
 
-<code>
-<img src="/outputs/headphone_word_cloud.png" alt="Headphones logo" title="Headphones word map logo" style="display: inline-block; margin: 0 auto">
-</code>
+<div align="center">
+<img align = "center", src="/outputs/headphone_word_cloud.png" alt="Headphones logo" title="Headphones word map logo" height="320"/>
+
 ```diff
 
 ```

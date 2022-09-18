@@ -5,14 +5,14 @@
 The analysis was made on a dataset provided by [kaggle](https://www.kaggle.com/datasets/mdwaquarazam/headphone-dataset-review-analysis). The data was initially taken from [Amazon product data](https://www.amazon.in/boat-headphones/s?k=boat+headphones).
 The input data consists of the customer name, review title, the color of the headphones, review date, comments, and ratings.<br>
 The in-depth analysis of this dataset will focus mainly on different NLP techniques for building classification and regression models, sentiment analysis models, knowledge graphs, and other algorithms for relevant knowledge extraction.
-![heaphones](/outputs/headphone_word_cloud.png)
+<img src="/outputs/headphone_word_cloud.png" alt="Headphones logo" title="Headphones word map logo">
 
 ```diff
 
 ```
 
 ## ▶️ Notebook ▶️ [Exploratory data analysis](01_EDA.ipynb) ##
-🔵 <b>Uses:</b> <i>[nlkt] [spacy]</i>
+🔵 <b>Uses:</b> <i>[nltk] [spacy]</i>
 
 🔵 <b>Intro:</b>
 <i>

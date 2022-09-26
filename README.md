@@ -19,7 +19,7 @@ The in-depth analysis of this dataset will focus mainly on different NLP techniq
 ```
 
 ## ▶️ Notebook ▶️ [Exploratory data analysis](01_EDA.ipynb) ##
-🔵 <b>Uses:</b> <i>[nltk] [spacy]</i>
+🔵 <b>Uses:</b> <i>[nltk] [sklearn]</i>
 
 🔵 <b>Intro:</b>
 <i>
@@ -28,5 +28,20 @@ Exploratory data analysis is a way to look at data sets to get a quick overview 
 🔵 <b>Steps:</b>
 <i>
 1. Perform basic statistics for comments and review, including: word count, sentences count, average word count per sentence and average sentence count per comment/review.
-2. Visualize basic statistics.
+2. Visualize basic statistics of individual tokens and n-grams.
+3. Draw some first-draft conclusions.
+</i>
+
+
+## ▶️ Notebook ▶️ [Classification](02_classification.ipynb) ##
+🔵 <b>Uses:</b> <i>[sklearn] [word2Vec] [gloVe] [BERT]</i>
+
+🔵 <b>Intro:</b>
+<i> tba </i>
+
+🔵 <b>Steps:</b>
+<i>
+1. tba
+2. tba
+3. tba
 </i>

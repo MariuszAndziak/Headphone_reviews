@@ -4,10 +4,12 @@ from spacy.lang.en.stop_words import STOP_WORDS
 from collections import Counter
 import string
 import re
+from nltk import sent_tokenize
+
 
 class Preprocessing(object):
     '''
-    Modified version of preprocessing class
+    Preprocessing class for text manipulation
     '''
     def __init__(self, text):
         self.text = text
@@ -61,16 +63,54 @@ class Preprocessing(object):
         return self.text
     
 
-def most_common_tokens(tokens, topn):
+
+def most_common_tokens(tokens: pd.Series, topn: int) -> pd.DataFrame:
+    '''
+    Get most common tokens from the data
+
+    Args:
+        tokens: series on lists of tokens
+        topn: number of how many most common tokens we want to show
+    
+    Returns:
+        A pandas dataframe with columns names representin topn tokens and
+        rows with 0 or 1 correcponding to presence or absence of a particular
+        token
+    '''
     cnt = Counter()
-    tokens.map(cnt.update)
+    tokens.map(cnt.update) 
+
+    # list of top tokens
     top_tokens = [token[0] for token in cnt.most_common(topn)]
 
-    def retrurn_top_tokens(tokens):
+    def return_top_tokens(tokens: pd.Series)-> list:
+        '''
+        Return a list of 0s and 1s corresponding to the fact whether a token
+        is a top_token
+        '''
         return [int(token in tokens) for token in top_tokens]
     
-    X = retrurn_top_tokens(tokens)
+    X = tokens.apply(return_top_tokens).apply(pd.Series)
     X.columns = top_tokens
 
     return X
 
+
+def use_vectorizer(text: pd.Series, vectorizer: type, vectorizer_kwargs: dict):
+    '''
+    Make a vector representation using inputed vectorizer and its arguments 
+    '''
+    vec = vectorizer(**vectorizer_kwargs)
+    X = vec.fit_transform(text).toarray()
+
+    return X
+
+
+def use_word2vec_model(model, tokens):
+    X = tokens.map(lambda x: np.mean([model.wv[w] for w in x if w in model.wv], axis = 0))
+    default_vector = X[False == X.isnull()].mean()
+    return np.stack(X.map(lambda x: x if str(x) != 'nan' else default_vector))
+
+
+def use_doc2vec_model(tokens):
+    return TaggedDocument(words = tokens, tags = [tokens.index.tolist()])
